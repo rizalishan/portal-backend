@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = ["seharshaikh-bp <seharshaikh@bitspro.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.103.1"
+uvicorn = "^0.23.2"
+pydantic = "^2.3.0"
+fastapi-versioning = "^0.10.0"
+tortoise-orm = {extras = ["asyncpg"], version = "^0.20.0"}
+aerich = "^0.7.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+
+
+[tool.aerich]
+tortoise_orm = "app.main.TORTOISE_ORM_MIGRATIONS"
+location = "./migrations"
+src_folder = "./."
