@@ -3,6 +3,8 @@ from tortoise.contrib.postgres.fields import ArrayField
 from pydantic import BaseModel
 
 
+
+
 class Portfolio(models.Model):
 
     """

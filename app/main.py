@@ -3,6 +3,13 @@ from fastapi import FastAPI
 from .resources.portfolio import routes as portfolio_routes
 from .resources.jobs import routes as jobs_routes
 from .resources.services import routes  as services_routes
+from .resources.candidate import routes as candidate_routes
+from .resources.examination import routes as examination_routes
+from .resources.assessment import routes as assessment_routes
+from .resources.question import routes as question_routes
+from .resources.assessmentQuestions import routes as assessmentQuestions_routes
+
+
 from .docs import meta_tags, meta_title, meta_description, meta_version
 from tortoise.contrib.fastapi import register_tortoise
 from tortoise import Tortoise
@@ -31,11 +38,16 @@ def get_db_url():
 MODULES_LIST = [
     "app.resources.portfolio.model",
     "app.resources.jobs.model",
-    "app.resources.services.model"
+    "app.resources.services.model",
+    "app.resources.candidate.model",
+    "app.resources.examination.model",
+    "app.resources.assessment.model",
+    "app.resources.question.model",
+    "app.resources.assessmentQuestions.model"
 ]
 
 
-Tortoise.init_models(MODULES_LIST, "models")   
+Tortoise.init_models(MODULES_LIST, "models")
 
 
 
@@ -65,3 +77,10 @@ TORTOISE_ORM_MIGRATIONS = {
 app.include_router(portfolio_routes.router)
 app.include_router(jobs_routes.router)
 app.include_router(services_routes.router)
+app.include_router(candidate_routes.router)
+app.include_router(examination_routes.router)
+app.include_router(assessment_routes.router)
+app.include_router(question_routes.router)
+app.include_router(assessmentQuestions_routes.router)
+
+
